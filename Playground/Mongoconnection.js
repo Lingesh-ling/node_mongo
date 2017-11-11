@@ -6,16 +6,23 @@ MongoClient.connect('mongodb://localhost:27017/todo',(err, db) => {
   }
   console.log('success');
 
-  db.collection('users').insertOne({
-    Name:'Lingesh',
-    Age: 25
-  }, (err, result) => {
-    if(err) {
-      return console.log(err)
-    }
-    console.log(result.ops[0]._id.getTimestamp());
+  // db.collection('users').insertOne({
+  //   Name:'Lingesh',
+  //   Age: 25
+  // }, (err, result) => {
+  //   if(err) {
+  //     return console.log(err)
+  //   }
+  //   console.log(result.ops[0]._id.getTimestamp());
 
+  db.collection('marks').insertOne({
+    maths:100,
+    English:9
+  },(err, result) => {
+    console.log(result.ops)
   });
+
+
 
   db.close();
 });

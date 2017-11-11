@@ -14,7 +14,11 @@ MongoClient.connect('mongodb://localhost:27017/todo',(err, db) => {
   // })
 
 
-  db.collection('users').find().count().then((res) => { console.log(res)},  (err) => {});
+  // db.collection('users').find().count().then((res) => { console.log(res)},  (err) => {});
+
+  db.collection('marks').findOneAndDelete({maths:100}).then((res) => {
+    console.log(res);
+  })
 
   db.close();
 });
